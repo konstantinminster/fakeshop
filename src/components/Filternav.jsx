@@ -1,11 +1,41 @@
+import useSWR from "swr";
+
+// created function to handle API request
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
 export const Filternav = () => {
+
+  const {
+    data: navItems,
+    error,
+    isValidating,
+  } = useSWR("https://fakestoreapi.com/products/categories", fetcher);
+
+  // Handles error and loading state
+  if (error) return <div className="failed">fehler beim Laden</div>;
+  if (isValidating) return <div className="Loading">Wird geladen...</div>;
+
+//console.log(navItems)
+
     return (
-        <ul className="menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box">
-  <li><a>Item 1</a></li>
-  <li><a>Item 2</a></li>
-  <li><a>Item 3</a></li>
-</ul>
-    )
+        
+         <ul className="menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box">
+            {navItems && navItems.map((item) => (
+                <li key={item} className="menu-title">
+                    <a className="justify-between">
+                        {item}
+                    </a>
+                </li>
+            ))  
+
+            }
+
+
+         </ul>
+           
+  
+        )
+    
 }
 
 export default Filternav;
