@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+//import { useState } from 'react'
+
+import Footer from './components/Footer'
+import Header from './components/Header'
+import Filternav from './components/Filternav'
+import Products from './components/Products'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+ 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <Filternav />
+      <Products />
+      <Footer />
     </>
   )
 }
 
 export default App
+
+
+// Requirements:
+// Navigation Bar:
+    // Available in all routes (create a layout component for your route 😉)
+    // Include links to Home and Cart.
+// Home Page:
+  // Show a list of all categories from https://fakestoreapi.com/products/categories. You are free to choose how they are displayed.
+  //Show a list of all products from https://fakestoreapi.com/products as cards.
+        // DONE: Each card should display:
+        // DONE: title
+        // DONE: price
+        // link to the product category
+        // add to cart button
+        // If a product is already in the cart, render buttons to remove and add more to the cart (manage quantity, e.g., never go below zero, remove the item instead).
+        // It should also show the current amount in the cart.
+//
+// Cart Page:
+// Render a table with the products, the sum of each line, and a total amount.
+// It should also be possible to add or remove items.
+
