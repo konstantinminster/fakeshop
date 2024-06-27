@@ -22,8 +22,8 @@ export const Filternav = () => {
       {navItems &&
         navItems.map((item) => (
           <li key={item} className="menu-title">
-            {/* <Link to={`category/${item}`}>{item}</Link> */}
-            <a href={`category/${item}`} className="justify-between">{item}</a>
+            <Link to={`category/${item}`}>{item}</Link>
+            {/* <a href={`category/${item}`} className="justify-between">{item}</a> */}
           </li>
         ))}
     </ul>
